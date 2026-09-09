@@ -1,1 +1,187 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ข้อมูลส่วนตัว - สมาชิกคนที่ 2</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #f4f6f9;
+      color: #333;
+    }
+    
+    /* Navigation Menu */
+    nav {
+      background-color: #2c3e50;
+      padding: 12px 20px;
+      border-radius: 8px;
+      margin-bottom: 25px;
+      display: flex;
+      gap: 15px;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 6px 12px;
+      border-radius: 4px;
+      transition: background-color 0.2s;
+    }
+    nav a:hover {
+      background-color: #34495e;
+    }
+    nav a.active {
+      background-color: #4CAF50;
+    }
 
+    /* Profile Section */
+    .profile-card {
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+      margin-bottom: 25px;
+      display: flex;
+      align-items: center;
+      gap: 25px;
+    }
+    .profile-img {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #4CAF50;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    }
+    .profile-info h2 {
+      margin-top: 0;
+      color: #2c3e50;
+    }
+    .profile-info p {
+      margin: 8px 0;
+      font-size: 1.05em;
+    }
+
+    /* Horizontal Table Section (ปรับแต่งใหม่ให้สวยงาม) */
+    .table-section {
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    }
+    .table-section h2 {
+      margin-top: 0;
+      color: #2c3e50;
+      margin-bottom: 20px;
+      font-size: 1.4em;
+      border-left: 5px solid #4CAF50;
+      padding-left: 10px;
+    }
+    .table-wrapper {
+      overflow-x: auto;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      table-layout: fixed;
+    }
+    th, td {
+      padding: 14px 10px;
+      text-align: center;
+      border-bottom: 1px solid #eef2f5;
+      border-right: 1px solid #eef2f5;
+      transition: all 0.2s ease;
+      word-wrap: break-word;
+    }
+    th:last-child, td:last-child {
+      border-right: none;
+    }
+    tr:last-child td {
+      border-bottom: none;
+    }
+    th {
+      background: linear-gradient(135deg, #4CAF50, #45a049);
+      color: white;
+      width: 20%;
+      font-size: 1.05em;
+      font-weight: 600;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+    }
+    td {
+      background-color: #ffffff;
+      color: #4a5568;
+      font-weight: 500;
+      width: 16%;
+    }
+    /* เอฟเฟกต์เมื่อวางเมาส์เหนือแถวและช่องข้อมูล */
+    tr:hover td {
+      background-color: #f0fdf4;
+    }
+    td:hover {
+      background-color: #dcfce7 !important;
+      color: #166534;
+      font-weight: bold;
+      transform: scale(1.03);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      position: relative;
+      z-index: 1;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- แถบเมนูเชื่อมโยง (Navigation Menu) -->
+  <nav>
+    <a href="index.html">หน้าหลัก</a>
+    <a href="person1.html">สมาชิกคนที่ 1</a>
+    <a href="person2.html" class="active">สมาชิกคนที่ 2</a>
+    <a href="person3.html">สมาชิกคนที่ 3</a>
+  </nav>
+
+  <!-- ข้อมูลส่วนตัว -->
+  <section class="profile-card">
+    <img src="2.jpg" alt="รูปถ่ายสมาชิกคนที่ 2" class="profile-img">
+    <div class="profile-info">
+      <h2>ข้อมูลส่วนตัว</h2>
+      <p><strong>ชื่อ-นามสกุล:</strong> นางสาวตามพร ลุงทุน</p>
+      <p><strong>ชื่อเล่น:</strong> แก้มใส</p>
+      <p><strong>รหัสนักศึกษา:</strong> 67219010053</p>
+      <p><strong>ชั้นปี:</strong> 3</p>
+    </div>
+  </section>
+
+  <!-- ตารางแนวนอนแสดงความชอบ (Horizontal Table) -->
+  <section class="table-section">
+    <h2>สิ่งที่สนใจ / ความชอบ</h2>
+    <div class="table-wrapper">
+      <table>
+        <tr>
+          <th>ดวงดาวที่น่าสนใจ/ชอบ</th>
+          <td> เคปเลอร์-22บี (Kepler-22b) </td>
+          <td> ยูโรปา (Europa) </td>
+          <td> สตีเวนสัน 2-18 / วายยู สคูไต (Stephenson 2-18 / UY Scuti) </td>
+          <td> ดาวซิริอุส เอ (ดาวโจร) / ดาวเวกา (Sirius A / Vega) </td>
+          <td> ฟีนิกซ์ เอ สตาร์ (Phoenix A*) </td>
+        </tr>
+        <tr>
+          <th>สัตว์ที่น่าสนใจ/ชอบ</th>
+          <td> แมงกะพรุน เช่น Turritopsis Dohrnii </td>
+          <td> วาฬ เช่น Killer Whale </td>
+          <td> หมึก เช่น Bigfin Squid </td>
+          <td> ผีเสื้อกลางคืน เช่น Bombyx Mori </td>
+          <td> แมงมุม เช่น Mirror Spider </td>
+        </tr>
+      </table>
+    </div>
+  </section>
+
+</body>
+</html>
