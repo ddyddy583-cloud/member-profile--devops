@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>รายชื่อสมาชิกในกลุ่ม</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Kanit', sans-serif, Tahoma;
+        }
+
+        body {
+            background-color: #f4f6f9;
+            color: #333;
+            padding: 40px 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        /* จัด Layout การ์ดสมาชิกให้อยู่ตรงกลางและปรับตามขนาดหน้าจอ */
+        .container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* ตกแต่งการ์ดสมาชิก */
+        .card {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            width: 300px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 20px;
+        }
+
+        .card-content h3 {
+            font-size: 1.25rem;
+            color: #2c3e50;
+            margin-bottom: 8px;
+        }
+
+        .card-content p {
+            color: #7f8c8d;
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+
+        /* ตกแต่งปุ่มลิงก์ไปยังหน้าส่วนตัว */
+        .btn-link {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+            transition: background-color 0.2s ease;
+        }
+
+        .btn-link:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>สมาชิกภายในกลุ่ม</h1>
+        <p>เลือกลิ้งก์ของการ์ดแต่ละคนเพื่อดูข้อมูลส่วนตัวเพิ่มเติม</p>
+    </header>
+
+    <main class="container">
+        <!-- สมาชิกคนที่ 1 -->
+        <div class="card">
+            <img src="https://via.placeholder.com/300x250" alt="รูปภาพสมาชิกคนที่ 1">
+            <div class="card-content">
+                <h3>นางสาว ศศินันทา เกิดพงษ์</h3>
+                <p>รหัสนักศึกษา: 67219010073</p>
+                <a href="person1.html" class="btn-link">ดูข้อมูลส่วนตัว</a>
+            </div>
+        </div>
+
+        <!-- สมาชิกคนที่ 2 -->
+        <div class="card">
+            <img src="https://via.placeholder.com/300x250" alt="รูปภาพสมาชิกคนที่ 2">
+            <div class="card-content">
+                <h3>นางสาว ตาวพร ลุงทุน</h3>
+                <p>รหัสนักศึกษา: 67219010053</p>
+                <a href="person2.html" class="btn-link">ดูข้อมูลส่วนตัว</a>
+            </div>
+        </div>
+
+        <!-- สมาชิกคนที่ 3 -->
+        <div class="card">
+            <img src="https://via.placeholder.com/300x250" alt="รูปภาพสมาชิกคนที่ 3">
+            <div class="card-content">
+                <h3>นางสาว วรรัญญา ครองสุข</h3>
+                <p>รหัสนักศึกษา: 67219010062</p>
+                <a href="person3.html" class="btn-link">ดูข้อมูลส่วนตัว</a>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>
