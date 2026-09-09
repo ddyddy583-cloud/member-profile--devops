@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Woranyaa — Profile</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Itim&family=Kanit:wght@300;400;500;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+    font-family: "Kanit", sans-serif;
+    background:
+        radial-gradient(circle at 15% 20%, rgba(255,255,255,.8), transparent 22%),
+        radial-gradient(circle at 80% 10%, rgba(190,220,255,.7), transparent 25%),
+        linear-gradient(135deg, #dceeff, #f5f1ff, #dff8f1);
+    color: #26334a;
+}
+
+/* ---------- WATERCOLOUR EFFECT ---------- */
+
+body::before,
+body::after {
+    content: "";
+    position: fixed;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    filter: blur(70px);
+    opacity: .35;
+    z-index: -2;
+    animation: watercolor 12s ease-in-out infinite alternate;
+}
+
+body::before {
+    background: #9dc8ff;
+    top: -180px;
+    left: -180px;
+}
+
+body::after {
+    background: #c9a9ff;
+    bottom: -200px;
+    right: -150px;
+    animation-delay: -5s;
+}
+
+@keyframes watercolor {
+    from {
+        transform: translate(0, 0) scale(1);
+    }
+    to {
+        transform: translate(80px, 40px) scale(1.2);
+    }
+}
+
+/* ---------- STARS ---------- */
+
+.star {
+    position: fixed;
+    color: white;
+    font-size: 18px;
+    opacity: .8;
+    pointer-events: none;
+    animation: floatStar linear infinite;
+    z-index: 0;
+    text-shadow: 0 0 10px #fff;
+}
+
+@keyframes floatStar {
+    0% {
+        transform: translateY(110vh) rotate(0deg);
+        opacity: 0;
+    }
+    15% {
+        opacity: .9;
+    }
+    85% {
+        opacity: .9;
+    }
+    100% {
+        transform: translateY(-20vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* ---------- OPENING ---------- */
+
+#opening {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background:
+        radial-gradient(circle at center, rgba(255,255,255,.8), transparent 35%),
+        linear-gradient(135deg, #d8eaff, #eee6ff, #dff8f1);
+    transition: opacity 1s ease, visibility 1s ease;
+}
+
+#opening.hide {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.opening-box {
+    text-align: center;
+    animation: openingFloat 4s ease-in-out infinite;
+}
+
+.opening-box img {
+    width: min(390px, 75vw);
+    max-height: 65vh;
+    object-fit: contain;
+    filter: drop-shadow(0 20px 25px rgba(40,60,100,.2));
+}
+
+.opening-title {
+    margin-top: -15px;
+    font-family: "Itim", cursive;
+    font-size: clamp(30px, 6vw, 55px);
+    color: #344a75;
+    text-shadow: 2px 3px 0 white;
+}
+
+.enter-btn {
+    margin-top: 20px;
+    border: none;
+    padding: 13px 35px;
+    border-radius: 999px;
+    background: rgba(255,255,255,.7);
+    color: #354b76;
+    font-family: "Kanit", sans-serif;
+    font-size: 17px;
+    cursor: pointer;
+    box-shadow: 0 8px 25px rgba(60,80,120,.18);
+    backdrop-filter: blur(10px);
+    transition: .3s;
+}
+
+.enter-btn:hover {
+    transform: scale(1.08);
+    background: white;
+}
+
+@keyframes openingFloat {
+    0%,100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+/* ---------- MAIN ---------- */
+
+main {
+    min-height: 100vh;
+    padding: 60px 20px;
+    position: relative;
+}
+
+.container {
+    width: min(1100px, 94%);
+    margin: auto;
+}
+
+/* ---------- HEADER ---------- */
+
+.header {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.header h1 {
+    font-family: "Itim", cursive;
+    font-size: clamp(42px, 8vw, 75px);
+    color: #354d78;
+    text-shadow: 3px 4px 0 rgba(255,255,255,.8);
+}
+
+.header p {
+    font-size: 17px;
+    color: #64728b;
+}
+
+/* ---------- PROFILE CARD ---------- */
+
+.profile {
+    display: grid;
+    grid-template-columns: 380px 1fr;
+    gap: 35px;
+    align-items: center;
+}
+
+.card {
+    background: rgba(255,255,255,.58);
+    border: 1px solid rgba(255,255,255,.75);
+    border-radius: 35px;
+    padding: 30px;
+    backdrop-filter: blur(18px);
+    box-shadow:
+        0 25px 60px rgba(60,80,120,.15),
+        inset 0 1px 0 white;
+}
+
+/* ---------- CHIBI ---------- */
+
+.character {
+    text-align: center;
+}
+
+.character img {
+    width: 100%;
+    max-height: 520px;
+    object-fit: contain;
+    filter: drop-shadow(0 20px 20px rgba(40,60,100,.2));
+    transition: .5s;
+}
+
+.character img:hover {
+    transform: translateY(-10px) rotate(-2deg) scale(1.03);
+}
+
+/* ---------- INFO ---------- */
+
+.info h2 {
+    font-family: "Itim", cursive;
+    font-size: 42px;
+    color: #3d5785;
+    margin-bottom: 15px;
+}
+
+.info-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px dashed rgba(80,100,140,.2);
+}
+
+.info-row:last-child {
+    border-bottom: none;
+}
+
+.icon {
+    font-size: 25px;
+    width: 40px;
+}
+
+.label {
+    color: #8791a5;
+    font-size: 13px;
+}
+
+.value {
+    font-size: 17px;
+}
+
+/* ---------- PETS ---------- */
+
+.pets {
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 15px;
+}
+
+.pet-box {
+    padding: 18px;
+    border-radius: 22px;
+    background: rgba(255,255,255,.48);
+    text-align: center;
+    transition: .3s;
+}
+
+.pet-box:hover {
+    transform: translateY(-5px);
+    background: rgba(255,255,255,.75);
+}
+
+.pet-box .emoji {
+    font-size: 38px;
+}
+
+.pet-box strong {
+    display: block;
+    color: #435d8d;
+}
+
+/* ---------- GALLERY ---------- */
+
+.gallery-title {
+    text-align: center;
+    margin: 70px 0 25px;
+    font-family: "Itim", cursive;
+    font-size: 45px;
+    color: #40577f;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.gallery-item {
+    overflow: hidden;
+    border-radius: 25px;
+    background: rgba(255,255,255,.55);
+    padding: 10px;
+    box-shadow: 0 15px 35px rgba(60,80,120,.12);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 330px;
+    object-fit: contain;
+    border-radius: 18px;
+    transition: .5s;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+/* ---------- MUSIC ---------- */
+
+.music {
+    margin: 50px auto;
+    max-width: 600px;
+    text-align: center;
+}
+
+.music h2 {
+    font-family: "Itim", cursive;
+    font-size: 40px;
+    color: #40577f;
+}
+
+.music-box {
+    margin-top: 15px;
+    padding: 22px;
+    border-radius: 25px;
+    background: rgba(255,255,255,.65);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 15px 35px rgba(60,80,120,.13);
+}
+
+.music-box p {
+    margin-bottom: 12px;
+    color: #596b89;
+}
+
+audio {
+    width: 100%;
+}
+
+/* ---------- FOOTER ---------- */
+
+footer {
+    text-align: center;
+    padding: 35px 10px;
+    color: #7a879d;
+}
+
+/* ---------- MOBILE ---------- */
+
+@media (max-width: 800px) {
+
+    main {
+        padding: 35px 12px;
+    }
+
+    .profile {
+        grid-template-columns: 1fr;
+    }
+
+    .character img {
+        max-height: 430px;
+    }
+
+    .gallery {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .gallery-item img {
+        height: 260px;
+    }
+}
+
+@media (max-width: 520px) {
+
+    .card {
+        padding: 20px;
+        border-radius: 25px;
+    }
+
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-item img {
+        height: 350px;
+    }
+
+    .pets {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================= OPENING ================= -->
+
+<section id="opening">
+
+    <div class="opening-box">
+
+        <!-- รูปที่ 1 = รูปเปิด -->
+        <img
+            src="https://github.com/user-attachments/assets/bfbfe331-3c35-40ba-9ed4-4b17c35645c8"
+            alt="Opening Character"
+        >
+
+        <div class="opening-title">
+            Welcome to my little world ✦
+        </div>
+
+        <button class="enter-btn" onclick="enterSite()">
+            ✦ Enter ✦
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ================= MAIN ================= -->
+
+<main>
+
+<div class="container">
+
+    <header class="header">
+        <h1>Woranyaa ♡</h1>
+        <p>Welcome to my little watercolor world</p>
+    </header>
+
+
+    <!-- PROFILE -->
+
+    <section class="profile">
+
+        <!-- รูปจิบิ -->
+        <div class="card character">
+
+            <img
+                src="https://github.com/user-attachments/assets/a5a48d2b-cebb-469c-95f2-4f07eed95f2b"
+                alt="Chibi"
+            >
+
+        </div>
+
+
+        <!-- ข้อมูล -->
+
+        <div class="card info">
+
+            <h2>About Me ✦</h2>
+
+            <div class="info-row">
+                <div class="icon">🌷</div>
+                <div>
+                    <div class="label">Name</div>
+                    <div class="value">วรรัญญา ครองสุข</div>
+                </div>
+            </div>
+
+            <div class="info-row">
+                <div class="icon">🎓</div>
+                <div>
+                    <div class="label">Student ID</div>
+                    <div class="value">67219010062</div>
+                </div>
+            </div>
+
+            <div class="info-row">
+                <div class="icon">🎂</div>
+                <div>
+                    <div class="label">Age</div>
+                    <div class="value">17 years old</div>
+                </div>
+            </div>
+
+            <div class="info-row">
+                <div class="icon">🐾</div>
+                <div>
+                    <div class="label">My favorite thing</div>
+                    <div class="value">เลี้ยงสัตว์ ♡</div>
+                </div>
+            </div>
+
+            <div class="info-row">
+                <div class="icon">🍵</div>
+                <div>
+                    <div class="label">Favorite food & drink</div>
+                    <div class="value">มัทฉะลาเต้ และขนมต่าง ๆ</div>
+                </div>
+            </div>
+
+
+            <div class="pets">
+
+                <div class="pet-box">
+                    <div class="emoji">🦜</div>
+                    <strong>Parrots</strong>
+                    2 ตัว
+                </div>
+
+                <div class="pet-box">
+                    <div class="emoji">🐹</div>
+                    <strong>Hamsters</strong>
+                    4 ตัว
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- MUSIC -->
+
+    <section class="music">
+
+        <h2>♪ My Music ♪</h2>
+
+        <div class="music-box">
+
+            <p>GYOEI — 暁影</p>
+
+            <!-- ใส่ไฟล์ GYOEI.mp3 ไว้ข้าง index.html -->
+            <audio controls>
+                <source src="GYOEI.mp3" type="audio/mpeg">
+                เบราว์เซอร์ของคุณไม่รองรับการเล่นเพลง
+            </audio>
+
+        </div>
+
+    </section>
+
+
+    <!-- GALLERY -->
+
+    <h2 class="gallery-title">✦ My Gallery ✦</h2>
+
+    <section class="gallery">
+
+        <div class="gallery-item">
+            <img
+                src="https://github.com/user-attachments/assets/9a41704a-f6d1-4b65-bff7-b87d83a6a52f"
+                alt="Artwork 2"
+            >
+        </div>
+
+        <div class="gallery-item">
+            <img
+                src="https://github.com/user-attachments/assets/a5a48d2b-cebb-469c-95f2-4f07eed95f2b"
+                alt="Artwork 3"
+            >
+        </div>
+
+        <div class="gallery-item">
+            <img
+                src="https://github.com/user-attachments/assets/162d45ac-3c34-434e-a98a-25942af2242c"
+                alt="Artwork 4"
+            >
+        </div>
+
+        <div class="gallery-item">
+            <img
+                src="https://github.com/user-attachments/assets/cca434a9-82d9-4de4-8cd9-1d51367dd0f4"
+                alt="Artwork 5"
+            >
+        </div>
+
+        <div class="gallery-item">
+            <img
+                src="https://github.com/user-attachments/assets/2acc9cab-b7cc-443f-8d2a-f9b2c5721dc8"
+                alt="Artwork 6"
+            >
+        </div>
+
+    </section>
+
+
+    <footer>
+        Made with ♡ and a little bit of magic ✦
+    </footer>
+
+</div>
+
+</main>
+
+
+<!-- ================= FLOATING STARS ================= -->
+
+<script>
+
+function createStars() {
+
+    const symbols = ["✦", "✧", "⋆", "✶", "·"];
+
+    for (let i = 0; i < 45; i++) {
+
+        const star = document.createElement("div");
+
+        star.className = "star";
+
+        star.innerHTML =
+            symbols[Math.floor(Math.random() * symbols.length)];
+
+        star.style.left =
+            Math.random() * 100 + "vw";
+
+        star.style.fontSize =
+            (8 + Math.random() * 18) + "px";
+
+        star.style.animationDuration =
+            (8 + Math.random() * 15) + "s";
+
+        star.style.animationDelay =
+            (-Math.random() * 15) + "s";
+
+        document.body.appendChild(star);
+    }
+}
+
+createStars();
+
+
+/* ---------- OPEN SITE ---------- */
+
+function enterSite() {
+
+    const opening = document.getElementById("opening");
+
+    opening.classList.add("hide");
+
+    // พยายามเล่นเพลงเมื่อกด Enter
+    const audio = document.querySelector("audio");
+
+    if (audio) {
+        audio.play().catch(() => {
+            // ถ้า browser บล็อก autoplay
+            // ผู้ใช้สามารถกดปุ่ม Play เองได้
+        });
+    }
+}
+
+</script>
+
+</body>
+</html>
